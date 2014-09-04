@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<h3>Mobile Application Management(MAM) Security Checklist</h3>
+<h3>Mobile Application Management (MAM) Security Checklist</h3>
 </head>
 
 <body>
