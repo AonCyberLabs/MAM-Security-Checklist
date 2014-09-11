@@ -75,106 +75,106 @@ The following checklist is intended to be used as a baseline for assessing, desi
     <td>MAM Server authentication tokens and or client certificates must be stored encrypted and only available for decryption until entering valid passcode</td>
   </tr>
   <tr>
+    <td>16</td>
+    <td>If application requires online access to function, organization should consider enforcing online authentication policies for the application</td>
+  </tr>
+  <tr>
     <th colspan="2">Implementation of MAM Secure Container Cryptography</th>
   </tr>
   <tr>
-    <td>16</td>
+    <td>17</td>
     <td>Identify the secure random generator library and routine used throughout the solution and ensure it is not vulnerable to known issues</td>
   </tr>
   <tr>
-    <td>17</td>
+    <td>18</td>
     <td>Validate that the cryptography used to protect any sensitive data is utilizing FIPS compliant library (if solution claims they are FIPS compliant)</td>
   </tr>
   <tr>
-    <td>18</td>
+    <td>19</td>
     <td>The solution should not utilize an insecure mode of encryption</td>
   </tr>
   <tr>
-    <td>19</td>
+    <td>20</td>
     <td>Solution should utilize secure random IV/nonce of sufficient length when encrypting data</td>
   </tr>
   <tr>
-    <td>20</td>
+    <td>21</td>
     <td>Ensure encrypted data stored is not susceptible to tampering by performing an HMAC of the ciphertext and validating the value prior to decryption</td>
   </tr>
   <tr>
-    <td>21</td>
+    <td>22</td>
     <td>Beware of using string objects to hold sensitive binary data (Cryptographic Keys, IVs, Salts) as it could lead to unexpected char-set encoding and a loss of entropy </td>
   </tr>
   <tr>
-    <td>22</td>
+    <td>23</td>
     <td>The solution should avoid utilizing database encryption solutions such as SQLCipher to encrypt/decrypt application data as it will cause the symmetric key to be stored as a string</td>
   </tr>
   <tr>
-    <td>23</td>
+    <td>24</td>
     <td>The solution should avoid setting passcode or cryptography keys on the heap as it will cause the key to persist in memory for an extended period of time. The data will only be removed from memory once the garbage collection is performed.</td>
   </tr>
   <tr>
-    <td>24</td>
+    <td>25</td>
     <td>Verify third party cryptography library is not out of date and vulnerable to any vulnerabilities that apply to the MAM solution</td>
   </tr>
   <tr>
     <th colspan="2">Completeness of MAM Wrapping</th>
   </tr>
   <tr>
-    <td>25</td>
+    <td>26</td>
     <td>Verify that common APIs that persist data on the file system will be adequately wrapped and encrypted by the solution </td>
   </tr>
   <tr>
-    <td>26</td>
+    <td>27</td>
     <td>Ensure that the wrapped applications are using the same FIPS compliant library to perform cryptography</td>
   </tr>
   <tr>
-    <td>27</td>
+    <td>28</td>
     <td>Wrapped application should not be utilizing device level data protection as the primary form of encryption since it requires a passcode being set on the device</td>
   </tr>
   <tr>
-    <td>27</td>
+    <td>29</td>
     <td>Ensure data stored within Webviews are adequately wrapped and data will be encrypted by the solution (HTML5 storage, Cached Pages, Cookies, etc)</td>
   </tr>
   <tr>
-    <td>29</td>
+    <td>30</td>
     <td>Phone numbers or email addresses rendered within Webviews (Typically created into hyperlinks) should contain security controls to prevent leakage to unmanaged applications</td>
   </tr>
   <tr>
-    <td>30</td>
+    <td>31</td>
     <td>Verify that native or low level APIs (NDK, C functions) are also wrapped and data will be encrypted by the solution</td>
   </tr>
   <tr>
-    <td>31</td>
+    <td>32</td>
     <td>Files opened by a wrapped application should not lead to unencrypted storage of cached documents</td>
   </tr>
   <tr>
-    <td>32</td>
+    <td>33</td>
     <td>Cached HTTP response data should not be written to the file system unencrypted</td>
   </tr>
   <tr>
-    <td>33</td>
+    <td>34</td>
     <td>Persistent HTTP cookies should not be written to the file system unencrypted</td>
   </tr>
   <tr>
-    <td>34</td>
+    <td>35</td>
     <td>Data written to the system pasteboard by a wrapped application should be encrypted</td>
   </tr>
   <tr>
-    <td>35</td>
+    <td>36</td>
     <td>Data written using cloud based APIs should be encrypted (iCloud, etc)</td>
   </tr>
   <tr>
-    <td>36</td>
-    <td>Snapshot Caching on iOS device should be actively prevented within wrapped applications</td>
-  </tr>
-  <tr>
     <td>37</td>
-    <td>Filenames should be encrypted by the applications</td>
+    <td>Snapshot Caching went sending applications to the background should be actively prevented within wrapped applications</td>
   </tr>
   <tr>
     <td>38</td>
-    <td>Files opened by a wrapped applications (Open-in) should remove any plaintext copies made into its application container</td>
+    <td>Filenames should be encrypted by the applications</td>
   </tr>
   <tr>
     <td>39</td>
-    <td>Files opened by a wrapped application may cause plaintext copied to be storage. Ensure that these plaintext copies are removed as soon as the file is closed within the application. </td>
+    <td>Files opened by a wrapped applications (Open-in) should remove any plaintext copies made into its application container</td>
   </tr>
   <tr>
     <td>40</td>
@@ -190,7 +190,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>43</td>
-    <td>The MAM agent should encrypt try to encrypt all data except values that would be required prior to authentication.</td>
+    <td>The MAM agent should try to encrypt all data except values that would be required prior to authentication.</td>
   </tr>
   <tr>
     <td>44</td>
@@ -236,7 +236,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>53</td>
-    <td>Jailbreak detection should not be susceptible to trivial bypasses. For example, using the xCon Cydia application or by simply writing a hook for a “isJailbroken” method. It is recommended that jailbreak detection is written in low level code and placed inline across various methods in the application.</td>
+    <td>Jailbreak detection should not be susceptible to trivial bypasses. For example, using the xCon Cydia application or by simply writing a hook for a “isJailbroken” method. It is recommended that jailbreak detection be written in low level code and placed inline across various methods in the application.</td>
   </tr>
   <tr>
     <th colspan="2">Effectiveness of Remote Lock and Wipes</th>
