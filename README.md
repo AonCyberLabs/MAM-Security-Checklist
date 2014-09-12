@@ -166,7 +166,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>37</td>
-    <td>Snapshot Caching went sending applications to the background should be actively prevented within wrapped applications</td>
+    <td>Snapshot Caching when sending applications to the background should be actively prevented within wrapped applications</td>
   </tr>
   <tr>
     <td>38</td>
