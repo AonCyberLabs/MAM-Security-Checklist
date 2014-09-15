@@ -16,7 +16,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>1</td>
-    <td>Stored Encrypted data should be protected using key material that is only accessible upon successful offline or online authentication</td>
+    <td>Stored encrypted data should be protected using key material that is only accessible upon successful offline or online authentication</td>
   </tr>
   <tr>
     <td>2</td>
@@ -24,15 +24,15 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>3</td>
-    <td>Online key material or any Content Encrypting Key (CEK) derived from the online key material should never persist on the disk</td>
+    <td>Online key material or any Content Encryption Key (CEK) derived from the online key material should never persist on the disk</td>
   </tr>
   <tr>
     <td>4</td>
-    <td>If policy is set to only allow online authentication, the MAM agents or managed apps should not be susceptible to any offline attacks due to storing offline authentication hashes</td>
+    <td>If the policy is configured to only allow online authentication, the MAM agents or managed apps should not be susceptible to any offline attacks due to storing offline authentication hashes</td>
   </tr>
   <tr>
     <td>5</td>
-    <td>Key material must be deleted from memory upon entering an unauthenticated state (app lock, session timeouts, sign off, etc)</td>
+    <td>Key material must be deleted from memory upon entering an unauthenticated state (app lock, session timeouts, sign off, etc.)</td>
   </tr>
   <tr>
     <td>6</td>
@@ -44,7 +44,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>8</td>
-    <td>Offline authentication must be utilizing a strong key derivation function like PBKDF2 with sufficient work factor (20,000 minimum, but this value should be increased over time due to hardware advancements)</td>
+    <td>Offline authentication must utilize a strong key derivation function (e.g. PBKDF2) that is configured with sufficient work factor (e.g. 20,000 minimum) to generate the Key Encryption Key (KEK). The work factor should be increased over time to account for hardware advancements</td>
   </tr>
   <tr>
     <td>9</td>
@@ -68,7 +68,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>14</td>
-    <td>Validate that the offline/online authentication routines within wrapped application match that of the MAM agent</td>
+    <td>Validate that the offline/online authentication routines within the wrapped applications match that of the MAM agent</td>
   </tr>
   <tr>
     <td>15</td>
