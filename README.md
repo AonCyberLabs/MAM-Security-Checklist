@@ -95,7 +95,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>20</td>
-    <td>Solution should utilize secure random IV/nonce of sufficient length when encrypting data</td>
+    <td>Solution should utilize secure random IV/nonce of sufficient length when encrypting data. IV's and nonces should not be derived from deterministic data and show be unique on file creation</td>
   </tr>
   <tr>
     <td>21</td>
