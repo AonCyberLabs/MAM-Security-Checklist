@@ -72,7 +72,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>15</td>
-    <td>MAM Server authentication tokens and or client certificates must be stored encrypted and only available for decryption until entering valid passcode</td>
+    <td>If MAM Server authentication tokens and/or client certificates must be stored, they should be encrypted using the CEK and made available to the application only after the user successfully enters their passcode</td>
   </tr>
   <tr>
     <td>16</td>
@@ -162,7 +162,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>36</td>
-    <td>Data written using cloud based APIs should be encrypted (iCloud, etc)</td>
+    <td>Data written using cloud based APIs should be encrypted (iCloud, Backup API, etc)</td>
   </tr>
   <tr>
     <td>37</td>
