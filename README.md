@@ -122,7 +122,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>26</td>
-    <td>Verify that common APIs that persist data on the file system will be adequately wrapped and encrypted by the solution </td>
+    <td>Verify that common APIs that persist data on the file system will be adequately wrapped and encrypted by the solution. The recommended way to perform file system wrapping is by hooking system calls in order to ensure coverage across APIs provided by higher level code. </td>
   </tr>
   <tr>
     <td>27</td>
@@ -134,127 +134,131 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>29</td>
-    <td>Ensure data stored within Webviews are adequately wrapped and data will be encrypted by the solution (HTML5 storage, Cached Pages, Cookies, etc)</td>
+    <td>If data written to external storage undergoes path based analysis in order to determine if the file should be encrypted, the solution must take symbolic links under consideration. Android devices contain several symbolic links to the external storage that may not be taken into consideration by the solution</td>
   </tr>
   <tr>
     <td>30</td>
+    <td>Ensure data stored within Webviews are adequately wrapped and data will be encrypted by the solution (HTML5 storage, Cached Pages, Cookies, etc)</td>
+  </tr>  
+  <tr>
+    <td>31</td>
     <td>Phone numbers or email addresses rendered within Webviews (Typically created into hyperlinks) should contain security controls to prevent leakage to unmanaged applications</td>
   </tr>
   <tr>
-    <td>31</td>
+    <td>32</td>
     <td>Verify that native or low level APIs (NDK, C functions) are also wrapped and data will be encrypted by the solution</td>
   </tr>
   <tr>
-    <td>32</td>
+    <td>33</td>
     <td>Files opened by a wrapped application should not lead to unencrypted storage of cached documents</td>
   </tr>
   <tr>
-    <td>33</td>
+    <td>34</td>
     <td>Cached HTTP response data should not be written to the file system unencrypted</td>
   </tr>
   <tr>
-    <td>34</td>
+    <td>35</td>
     <td>Persistent HTTP cookies should not be written to the file system unencrypted</td>
   </tr>
   <tr>
-    <td>35</td>
+    <td>36</td>
     <td>Data written to the system pasteboard by a wrapped application should be encrypted</td>
   </tr>
   <tr>
-    <td>36</td>
+    <td>37</td>
     <td>Data written using cloud based APIs should be encrypted (iCloud, Backup API, etc)</td>
   </tr>
   <tr>
-    <td>37</td>
+    <td>38</td>
     <td>Snapshot Caching when sending applications to the background should be actively prevented within wrapped applications</td>
   </tr>
   <tr>
-    <td>38</td>
+    <td>39</td>
     <td>Filenames should be encrypted by the applications</td>
   </tr>
   <tr>
-    <td>39</td>
+    <td>40</td>
     <td>Files opened by a wrapped applications (Open-in) should remove any plaintext copies made into its application container</td>
   </tr>
   <tr>
-    <td>40</td>
+    <td>41</td>
     <td>Persistent cookies should not be stored in plaintext within wrapped applications</td>
   </tr>
   <tr>
-    <td>41</td>
+    <td>42</td>
     <td>Any device level key storage (Keychains) should not be stored within MAM data encrypted since the device level encryption relies on device level passcode policies.</td>
   </tr>
   <tr>
-    <td>42</td>
+    <td>43</td>
     <td>The wrapping solution should be able to handle language specific introspection/reflection if used on a wrapped API</td>
   </tr>
   <tr>
-    <td>43</td>
+    <td>44</td>
     <td>The MAM agent should try to encrypt all data except values that would be required prior to authentication.</td>
   </tr>
   <tr>
-    <td>44</td>
+    <td>45</td>
     <td>Solution should provide restrictions to prevent wrapped apps from sending data to other systems from exposed system APIS (e.g. AirDrop APIs)</td>
   </tr>
   <tr>
     <th colspan="2">Implementation of the MAM Inter-Process Communication</th>
   </tr>
   <tr>
-    <td>45</td>
+    <td>46</td>
     <td>IPC entry points within the MAM agents and wrapped applications should validate the calling application to ensure it is trusted</td>
   </tr>
   <tr>
-    <td>46</td>
+    <td>47</td>
     <td>IPC messages should not be susceptible to forgery by third party applications</td>
   </tr>
   <tr>
-    <td>47</td>
+    <td>48</td>
     <td>Data passed within through IPC between the MAM agent and wrapped applications should not be susceptible to be read by third party applications</td>
   </tr>
   <tr>
-    <td>48</td>
+    <td>49</td>
     <td>Verify how keys are exchanged or generated within managed/wrapped apps if encryption is performed (e.g. URL Schemes, Content Providers, Intents, etc.). The key exchange process should contain authorization checks to ensure it cannot be invoked or sniffed by third party applications</td>
   </tr>
   <tr>
     <th colspan="2">Effectiveness of Client Side Security Controls</th>
   </tr>
   <tr>
-    <td>49</td>
+    <td>50</td>
     <td>Security policies sent from the MAM server to the MAM mobile agent should be digitally signed to prevent trivial modification over the network by an employee</td>
   </tr>
   <tr>
-    <td>50</td>
+    <td>51</td>
     <td>Security policies should not be stored in plaintext on the device to prevent trivial modification by an employee</td>
   </tr>
   <tr>
-    <td>51</td>
+    <td>52</td>
     <td>Solution should provide restrictions on any IPC calls wrapped apps can make into an unmanaged application</td>
   </tr>
   <tr>
-    <td>52</td>
+    <td>53</td>
     <td>Solution should incorporate obfuscation of client-side code to increase the difficulty in reverse engineering.</td>
   </tr>
   <tr>
-    <td>53</td>
-    <td>Jailbreak detection should not be susceptible to trivial bypasses. For example, using the xCon Cydia application or by simply writing a hook for a “isJailbroken” method. It is recommended that jailbreak detection be written in low level code and placed inline across various methods in the application.</td>
+    <td>54</td>
+    <td>Jailbreak/Root detection should not be susceptible to trivial bypasses. For example, using the xCon Cydia application or by simply writing a hook for a “isJailbroken” method. It is recommended that jailbreak detection be written in low level code and placed inline across various methods in the application.</td>
   </tr>
   <tr>
     <th colspan="2">Effectiveness of Remote Lock and Wipes</th>
   </tr>
   <tr>
-    <td>54</td>
+    <td>55</td>
     <td>Ensure key material is wiped on device "lock" states (session timeouts, server locks, excessive invalid pass codes, presented with pin code login screen, etc).</td>
   </tr>
   <tr>
-    <td>55</td>
+    <td>56</td>
     <td>Server invoked data wipes should cause all data to be removed wipes from the MAM Agent (This includes encrypted documents, encrypted key material, offline passcode validation data, etc)</td>
   </tr>
   <tr>
-    <td>56</td>
+    <td>57</td>
     <td>Server invoked data wipes should cause all data to be removed wipes from the Wrapped Applications (This includes encrypted documents, encrypted key material, offline passcode validation data, etc)</td>
   </tr>
   <tr>
-    <td>57</td>
+    <td>58</td>
     <td>Server invoked security commands should be invoked on the device immediately. The user should not need to interact with the application in order to invoke a polling request</td>
   </tr>
 </table>
