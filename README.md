@@ -142,7 +142,7 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>  
   <tr>
     <td>31</td>
-    <td>Phone numbers or email addresses rendered within Webviews (Typically rendered as hyperlinks) should contain security controls to prevent leakage to unmanaged applications</td>
+    <td>Custom URL schemes rendered within Webviews (e.g. tel, mailto, sms, etc.) should contain security controls to prevent leakage (e.g. telephone numbers, email addresses, etc.) to unmanaged applications</td>
   </tr>
   <tr>
     <td>32</td>
