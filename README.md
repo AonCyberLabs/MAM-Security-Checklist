@@ -174,83 +174,87 @@ The following checklist is intended to be used as a baseline for assessing, desi
   </tr>
   <tr>
     <td>39</td>
-    <td>Filenames should be encrypted by the applications</td>
+    <td>Verify that notifications from any wrapped applications do not appear on the home screen. This includes unencrypted filenames, sensitive app data, etc.</td>
   </tr>
   <tr>
     <td>40</td>
-    <td>Files opened by a wrapped applications (Open-in) should remove any plaintext copies made into its application container</td>
+    <td>Filenames should be encrypted by the applications</td>
   </tr>
   <tr>
     <td>41</td>
-    <td>Any application APis that rely on device level policies (e.g. iOS Keychain) should not be used to store sensitive data within the MAM agent or wrapped applications</td>
+    <td>Files opened by a wrapped applications (Open-in) should remove any plaintext copies made into its application container</td>
   </tr>
   <tr>
     <td>42</td>
-    <td>The wrapping solution should be able to handle language specific introspection/reflection if used on a wrapped API</td>
+    <td>Any application APis that rely on device level policies (e.g. iOS Keychain) should not be used to store sensitive data within the MAM agent or wrapped applications</td>
   </tr>
   <tr>
     <td>43</td>
-    <td>The MAM agent should try to encrypt all data except values that would be required prior to authentication.</td>
+    <td>The wrapping solution should be able to handle language specific introspection/reflection if used on a wrapped API</td>
   </tr>
   <tr>
     <td>44</td>
+    <td>The MAM agent should try to encrypt all data except values that would be required prior to authentication.</td>
+  </tr>
+  <tr>
+    <td>45</td>
     <td>Solution should restrict wrapped apps from sending data to other systems via exposed system APIs (e.g. AirDrop APIs)</td>
   </tr>
   <tr>
     <th colspan="2">Implementation of the MAM Inter-Process Communication</th>
   </tr>
   <tr>
-    <td>45</td>
+    <td>46</td>
     <td>IPC entry points within the MAM agents and wrapped applications should validate the calling application to ensure it is trusted</td>
   </tr>
   <tr>
-    <td>46</td>
+    <td>47</td>
     <td>IPC messages should not be susceptible to forgery by third party applications</td>
   </tr>
   <tr>
-    <td>47</td>
+    <td>48</td>
     <td>Data passed through IPC between the MAM agent and wrapped applications should not be readable by third party applications</td>
   </tr>
   <tr>
-    <td>48</td>
+    <td>49</td>
     <td>Verify how keys are exchanged or generated within managed/wrapped apps if encryption is performed (e.g. URL Schemes, Content Providers, Intents, etc.). The key exchange process should contain authorization checks to ensure it cannot be invoked or sniffed by third party applications</td>
   </tr>
   <tr>
     <th colspan="2">Effectiveness of Client Side Security Controls</th>
   </tr>
   <tr>
-    <td>49</td>
+    <td>50</td>
     <td>Security policies sent from the MAM server to the MAM mobile agent should be digitally signed to prevent trivial modification over the network by a malicious user</td>
   </tr>
   <tr>
-    <td>50</td>
+    <td>51</td>
     <td>Security policies should not be stored in plaintext on the device to prevent trivial modification by a malicious user</td>
   </tr>
   <tr>
-    <td>51</td>
+    <td>52</td>
     <td>Solution should provide restrictions on any IPC calls wrapped apps can make into an unmanaged application</td>
   </tr>
   <tr>
-    <td>52</td>
+    <td>53</td>
     <td>Solution should incorporate obfuscation of client-side code to increase the difficulty in reverse engineering.</td>
   </tr>
   <tr>
-    <td>53</td>
+    <td>54</td>
     <td>Jailbreak/Root detection should not be susceptible to trivial bypasses. For example, using the xCon Cydia application or by simply writing a hook for a “isJailbroken” method. It is recommended that jailbreak detection be written in low level code and placed inline across various methods in the application.</td>
   </tr>
   <tr>
     <th colspan="2">Effectiveness of Remote Lock and Wipes</th>
   </tr>
   <tr>
-    <td>54</td>
+    <td>55</td>
     <td>Server invoked data wipes should cause all data to be removed from the MAM Agent (This includes encrypted documents, encrypted key material, offline passcode validation data, etc)</td>
   </tr>
   <tr>
-    <td>55</td>
+    <td>56</td>
     <td>Server invoked data wipes should cause all data to be removed from the Wrapped Applications (This includes encrypted documents, encrypted key material, offline passcode validation data, etc)</td>
   </tr>
   <tr>
-    <td>56</td>
+    <td>57</td>
     <td>Server invoked security commands should be invoked on the device immediately. The user should not need to interact with the application in order to invoke a polling request</td>
   </tr>
 </table>
